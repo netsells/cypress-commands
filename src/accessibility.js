@@ -1,5 +1,3 @@
-const axios = require('axios');
-
 /**
  * Load the accessibility commands for Cypress
  *
@@ -32,12 +30,12 @@ const loadAccessibilityCommands = ({
 
                 expect(source).to.have.string('');
 
-                return axios.post(evaluateEndpoint, {
+                return cy.request('POST', evaluateEndpoint, {
                     source,
                     output: 'json',
                 })
                     .then(response => {
-                        const errors = response.data.filter(({ type }) => type === 'error');
+                        const errors = response.body.filter(({ type }) => type === 'error');
 
                         if (errors.length) {
                             throw new Error(errors.map(({ code, msg }) => `

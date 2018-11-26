@@ -1,6 +1,6 @@
 describe('field', () => {
     beforeEach(() => {
-        cy.visit('http://localhost:3000/fields');
+        cy.visit('fields');
     });
 
     it('gets the field by the label contents', () => {

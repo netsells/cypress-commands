@@ -20,9 +20,6 @@
     "express": "^4.16.4",
     "start-server-and-test": "^1.7.10"
   },
-  "dependencies": {
-    "axios": "^0.18.0"
-  },
   "peerDependencies": {
     "cypress": "^3.1.2"
   }
