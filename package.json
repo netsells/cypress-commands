@@ -4,14 +4,16 @@
   "description": "Common CypressIO commands in Netsells projects",
   "main": "src/index.js",
   "scripts": {
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "serve": "node ./server/index.js"
   },
   "author": "Sam Boylett <sam.boylett@netsells.co.uk>",
   "license": "ISC",
   "devDependencies": {
     "@netsells/eslint-config": "^1.8.0",
     "eslint": "^4.10.0",
-    "eslint-plugin-cypress": "^2.1.2"
+    "eslint-plugin-cypress": "^2.1.2",
+    "express": "^4.16.4"
   },
   "dependencies": {
     "axios": "^0.18.0"
