@@ -40,3 +40,13 @@ Get a field by via its `label`
 ```javascript
 cy.field('Password', field => field.type('Password'));
 ```
+
+### createAccessiblityTests
+
+Use this to easily generate lots of accessibility tests for multiple URLs.
+
+```javascript
+import { createAccessiblityTests } from '@netsells/cypress-commands';
+
+createAccessiblityTests('/', 'gift-cards', 'login');
+```

@@ -21,6 +21,7 @@ const loadAccessibilityCommands = ({
                 }
             });
     });
+
     /**
      * Checks the current page HTML against the accessibility evaluation
      * endpoint. Will throw any errors present, failing the test run.
