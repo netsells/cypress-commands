@@ -16,6 +16,7 @@ const curryPageFile = file =>
     };
 
 express()
+    .get('/', (req, res) => res.send('cypress-commands test site'))
     .get('/fields', curryPageFile('fields.html'))
     .get('/accessible', curryPageFile('accessible.html'))
     .get('/inaccessible', curryPageFile('inaccessible.html'))
