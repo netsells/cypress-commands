@@ -1,0 +1,22 @@
+{
+  "name": "cypress-commands",
+  "version": "1.0.0",
+  "description": "Common CypressIO commands in Netsells projects",
+  "main": "src/index.js",
+  "scripts": {
+    "lint": "eslint src"
+  },
+  "author": "Sam Boylett <sam.boylett@netsells.co.uk>",
+  "license": "ISC",
+  "devDependencies": {
+    "@netsells/eslint-config": "^1.8.0",
+    "eslint": "^4.10.0",
+    "eslint-plugin-cypress": "^2.1.2"
+  },
+  "dependencies": {
+    "axios": "^0.18.0"
+  },
+  "peerDependencies": {
+    "cypress": "^3.1.2"
+  }
+}

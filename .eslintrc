@@ -1,0 +1,7 @@
+{
+  "extends": "@netsells",
+  "plugins": ["cypress"],
+  "env": {
+    "cypress/globals": true
+  }
+}
