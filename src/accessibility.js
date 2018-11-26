@@ -8,7 +8,7 @@ const axios = require('axios');
  */
 const loadAccessibilityCommands = ({
     evaluateEndpoint = 'http://aatt.node.ns-client.xyz/evaluate',
-}) => {
+} = {}) => {
     /**
      * Checks the current page HTML against the accessibility evaluation
      * endpoint. Will throw any errors present, failing the test run.

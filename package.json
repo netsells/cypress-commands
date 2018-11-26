@@ -5,15 +5,20 @@
   "main": "src/index.js",
   "scripts": {
     "lint": "eslint src",
-    "serve": "node ./server/index.js"
+    "serve": "node ./server/index.js",
+    "cy": "cypress open",
+    "cy:run": "cypress run",
+    "test": "start-server-and-test serve http://localhost:3000 cy"
   },
   "author": "Sam Boylett <sam.boylett@netsells.co.uk>",
   "license": "ISC",
   "devDependencies": {
     "@netsells/eslint-config": "^1.8.0",
+    "cypress": "^3.1.2",
     "eslint": "^4.10.0",
     "eslint-plugin-cypress": "^2.1.2",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "start-server-and-test": "^1.7.10"
   },
   "dependencies": {
     "axios": "^0.18.0"
