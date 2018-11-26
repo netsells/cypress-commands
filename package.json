@@ -1,5 +1,5 @@
 {
-  "name": "cypress-commands",
+  "name": "@netsells/cypress-commands",
   "version": "1.0.0",
   "description": "Common CypressIO commands in Netsells projects",
   "main": "src/index.js",
