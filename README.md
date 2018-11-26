@@ -1,5 +1,7 @@
 # Cypress Commands
 
+[![Build Status](https://travis-ci.com/netsells/cypress-commands.svg?token=q7xh97fyLyzswVwqzXje&branch=master)](https://travis-ci.com/netsells/cypress-commands)
+
 Useful commands for testing accessibility issues in Cypress
 
 ## Installation
