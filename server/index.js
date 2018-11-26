@@ -18,4 +18,5 @@ const curryPageFile = file =>
 express()
     .get('/fields', curryPageFile('fields.html'))
     .get('/accessible', curryPageFile('accessible.html'))
+    .get('/inaccessible', curryPageFile('inaccessible.html'))
     .listen(process.env.PORT || 3000);

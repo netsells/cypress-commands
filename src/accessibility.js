@@ -12,6 +12,20 @@ const loadAccessibilityCommands = ({
      * endpoint. Will throw any errors present, failing the test run.
      */
     Cypress.Commands.add('checkAccessibility', () => {
+        return cy.getAccessibilityErrors()
+            .then(errors => {
+                if (errors.length) {
+                    throw new Error(errors.map(({ code, msg }) => `
+                            '${ code }': ${ msg }
+                        `.trim()).join('\r\n'));
+                }
+            });
+    });
+    /**
+     * Checks the current page HTML against the accessibility evaluation
+     * endpoint. Will throw any errors present, failing the test run.
+     */
+    Cypress.Commands.add('getAccessibilityErrors', () => {
         /**
          * Decode HTML entities
          *
@@ -35,13 +49,12 @@ const loadAccessibilityCommands = ({
                     output: 'json',
                 })
                     .then(response => {
-                        const errors = response.body.filter(({ type }) => type === 'error');
-
-                        if (errors.length) {
-                            throw new Error(errors.map(({ code, msg }) => `
-                                    '${ htmlDecode(code) }': ${ msg }
-                                `.trim()).join('\r\n'));
-                        }
+                        return response.body
+                            .filter(({ type }) => type === 'error')
+                            .map(({ code, ...error }) => ({
+                                ...error,
+                                code: htmlDecode(code),
+                            }));
                     });
             });
     });
