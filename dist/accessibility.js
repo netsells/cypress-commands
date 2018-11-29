@@ -14,22 +14,25 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
  * @param {Object} options
  * @param {String} [options.evaluateEndpoint]
  */
-const loadAccessibilityCommands = ({
-  evaluateEndpoint = 'http://aatt.node.ns-client.xyz/evaluate'
-} = {}) => {
+var loadAccessibilityCommands = function loadAccessibilityCommands() {
+  var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
+      _ref$evaluateEndpoint = _ref.evaluateEndpoint,
+      evaluateEndpoint = _ref$evaluateEndpoint === void 0 ? 'http://aatt.node.ns-client.xyz/evaluate' : _ref$evaluateEndpoint;
+
   /**
    * Checks the current page HTML against the accessibility evaluation
    * endpoint. Will throw any errors present, failing the test run.
    */
-  Cypress.Commands.add('checkAccessibility', () => {
-    return cy.getAccessibilityErrors().then(errors => {
+  Cypress.Commands.add('checkAccessibility', function () {
+    return cy.getAccessibilityErrors().then(function (errors) {
       if (errors.length) {
-        throw new Error(errors.map(({
-          code,
-          msg
-        }) => `
+        throw new Error(errors.map(function (_ref2) {
+          var code = _ref2.code,
+              msg = _ref2.msg;
+          return `
                             '${code}': ${msg}
-                        `.trim()).join('\r\n'));
+                        `.trim();
+        }).join('\r\n'));
       }
     });
   });
@@ -38,33 +41,32 @@ const loadAccessibilityCommands = ({
    * endpoint. Will throw any errors present, failing the test run.
    */
 
-  Cypress.Commands.add('getAccessibilityErrors', () => {
+  Cypress.Commands.add('getAccessibilityErrors', function () {
     /**
      * Decode HTML entities
      *
      * @param {String} input
      * @returns {String}
      */
-    const htmlDecode = input => {
-      const e = document.createElement('div');
+    var htmlDecode = function htmlDecode(input) {
+      var e = document.createElement('div');
       e.innerHTML = input;
       return e.childNodes.length === 0 ? '' : e.childNodes[0].nodeValue;
     };
 
-    return cy.document().then(doc => {
-      const source = doc.documentElement.outerHTML;
+    return cy.document().then(function (doc) {
+      var source = doc.documentElement.outerHTML;
       expect(source).to.have.string('');
       return cy.request('POST', evaluateEndpoint, {
         source,
         output: 'json'
-      }).then(response => {
-        return response.body.filter(({
-          type
-        }) => type === 'error').map((_ref) => {
-          let {
-            code
-          } = _ref,
-              error = _objectWithoutProperties(_ref, ["code"]);
+      }).then(function (response) {
+        return response.body.filter(function (_ref3) {
+          var type = _ref3.type;
+          return type === 'error';
+        }).map(function (_ref4) {
+          var code = _ref4.code,
+              error = _objectWithoutProperties(_ref4, ["code"]);
 
           return _objectSpread({}, error, {
             code: htmlDecode(code)
@@ -81,9 +83,9 @@ const loadAccessibilityCommands = ({
    * cy.field('Password', field => field.type('Password'));
    */
 
-  Cypress.Commands.add('field', (name, callback) => {
-    cy.contains('label', name).then(label => {
-      const id = label.attr('for');
+  Cypress.Commands.add('field', function (name, callback) {
+    cy.contains('label', name).then(function (label) {
+      var id = label.attr('for');
       callback(cy.get(`#${id}`));
     });
   });

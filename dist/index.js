@@ -1,8 +1,8 @@
 "use strict";
 
-const loadAccessibilityCommands = require('./accessibility.js');
+var loadAccessibilityCommands = require('./accessibility.js');
 
-const createAccessiblityTests = require('./accessibility-tests.js');
+var createAccessiblityTests = require('./accessibility-tests.js');
 
 module.exports = {
   loadAccessibilityCommands,
