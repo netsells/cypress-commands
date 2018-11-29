@@ -11,8 +11,8 @@ const loadAccessibilityCommands = ({
      * Checks the current page HTML against the accessibility evaluation
      * endpoint. Will throw any errors present, failing the test run.
      */
-    Cypress.Commands.add('checkAccessibility', () => {
-        return cy.getAccessibilityErrors()
+    Cypress.Commands.add('checkAccessibility', (customOptions = {}) => {
+        return cy.getAccessibilityErrors(customOptions)
             .then(errors => {
                 if (errors.length) {
                     throw new Error(errors.map(({ code, msg }) => `
@@ -26,7 +26,7 @@ const loadAccessibilityCommands = ({
      * Checks the current page HTML against the accessibility evaluation
      * endpoint. Will throw any errors present, failing the test run.
      */
-    Cypress.Commands.add('getAccessibilityErrors', () => {
+    Cypress.Commands.add('getAccessibilityErrors', (customOptions = {}) => {
         /**
          * Decode HTML entities
          *
@@ -46,6 +46,7 @@ const loadAccessibilityCommands = ({
                 expect(source).to.have.string('');
 
                 return cy.request('POST', evaluateEndpoint, {
+                    ...customOptions,
                     source,
                     output: 'json',
                 })
