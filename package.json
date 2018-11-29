@@ -9,7 +9,8 @@
     "cy": "cypress open",
     "cy:run": "cypress run",
     "test": "start-server-and-test serve http://localhost:3000 cy:run",
-    "build": "babel src --out-dir dist"
+    "build": "babel src --out-dir dist",
+    "prepublishOnly": "npm run build"
   },
   "author": "Sam Boylett <sam.boylett@netsells.co.uk>",
   "license": "ISC",
