@@ -10,7 +10,7 @@
     "cy:run": "cypress run",
     "test": "start-server-and-test serve http://localhost:3000 cy:run",
     "build": "babel src --out-dir dist",
-    "postinstall": "echo FooBar"
+    "prepare": "npm run build"
   },
   "author": "Sam Boylett <sam.boylett@netsells.co.uk>",
   "license": "ISC",
