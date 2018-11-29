@@ -2,17 +2,22 @@
   "name": "@netsells/cypress-commands",
   "version": "1.0.0",
   "description": "Common CypressIO commands in Netsells projects",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "lint": "eslint src",
     "serve": "node ./server/index.js",
     "cy": "cypress open",
     "cy:run": "cypress run",
-    "test": "start-server-and-test serve http://localhost:3000 cy:run"
+    "test": "start-server-and-test serve http://localhost:3000 cy:run",
+    "build": "babel src --out-dir dist",
+    "postinstall": "npm run build"
   },
   "author": "Sam Boylett <sam.boylett@netsells.co.uk>",
   "license": "ISC",
   "devDependencies": {
+    "@babel/cli": "^7.1.5",
+    "@babel/core": "^7.1.6",
+    "@babel/preset-env": "^7.1.6",
     "@netsells/eslint-config": "^1.8.0",
     "cypress": "^3.1.2",
     "eslint": "^4.10.0",
