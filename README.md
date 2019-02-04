@@ -12,10 +12,26 @@ yarn add --dev @netsells/cypress-commands
 
 ## Setup
 
+In `support/commands.js`:
+
+
 ```javascript
 const { loadAccessibilityCommands } = require('@netsells/cypress-commands');
 
 loadAccessibilityCommands();
+```
+
+
+In `plugins/index.js`:
+
+
+```javascript
+const { loadAccessibilityPlugins } = require('@netsells/cypress-commands');
+
+module.exports = (on, config) => {
+	loadAccessibilityPlugins(on, config);
+}
+
 ```
 
 ## Usage

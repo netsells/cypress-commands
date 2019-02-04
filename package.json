@@ -1,6 +1,6 @@
 {
   "name": "@netsells/cypress-commands",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Common CypressIO commands in Netsells projects",
   "main": "dist/index.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "serve": "node ./server/index.js",
     "cy": "cypress open",
     "cy:run": "cypress run",
-    "test": "start-server-and-test serve http://localhost:3000 cy:run",
+    "test": "npm run build && start-server-and-test serve http://localhost:3000 cy:run",
     "build": "babel src --out-dir dist",
     "prepublishOnly": "npm run build"
   },
@@ -23,7 +23,8 @@
     "eslint": "^4.10.0",
     "eslint-plugin-cypress": "^2.1.2",
     "express": "^4.16.4",
-    "start-server-and-test": "^1.7.10"
+    "start-server-and-test": "^1.7.10",
+    "aatt": "git+https://git@github.com/paypal/AATT.git#98699dd3c1ceded0c752a037af8d881e1d47bcc7"
   },
   "peerDependencies": {
     "cypress": "^3.1.2"

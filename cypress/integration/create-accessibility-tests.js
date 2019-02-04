@@ -1,3 +1,3 @@
-import { createAccessiblityTests } from '../../src/index.js';
+import { createAccessiblityTests } from '../../dist/index.js';
 
 createAccessiblityTests('accessible', 'fields');

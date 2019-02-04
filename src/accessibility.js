@@ -4,9 +4,7 @@
  * @param {Object} options
  * @param {String} [options.evaluateEndpoint]
  */
-const loadAccessibilityCommands = ({
-    evaluateEndpoint = 'http://aatt.node.ns-client.xyz/evaluate',
-} = {}) => {
+const loadAccessibilityCommands = () => {
     /**
      * Checks the current page HTML against the accessibility evaluation
      * endpoint. Will throw any errors present, failing the test run.
@@ -45,19 +43,19 @@ const loadAccessibilityCommands = ({
 
                 expect(source).to.have.string('');
 
-                return cy.request('POST', evaluateEndpoint, {
-                    ...customOptions,
+                return cy.task('evaluate', {
                     source,
                     output: 'json',
-                })
-                    .then(response => {
-                        return response.body
-                            .filter(({ type }) => type === 'error')
-                            .map(({ code, ...error }) => ({
-                                ...error,
-                                code: htmlDecode(code),
-                            }));
-                    });
+                    engine: 'htmlcs',
+                    ...customOptions,
+                }).then(result => {
+                    return JSON.parse(result)
+                        .filter(({ type }) => type === 'error')
+                        .map(({ code, ...error }) => ({
+                            ...error,
+                            code: htmlDecode(code),
+                        }));
+                });
             });
     });
 

@@ -1,3 +1,3 @@
-import { loadAccessibilityCommands } from '../../src/index.js';
+import { loadAccessibilityCommands } from '../../dist/index.js';
 
 loadAccessibilityCommands();
