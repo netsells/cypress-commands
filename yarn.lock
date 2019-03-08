@@ -622,9 +622,10 @@
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/@types/sizzle/-/sizzle-2.3.2.tgz#a811b8c18e2babab7d542b3365887ae2e4d9de47"
 
-"aatt@git+https://git@github.com/paypal/AATT.git#98699dd3c1ceded0c752a037af8d881e1d47bcc7":
-  version "0.1.0"
-  resolved "git+https://git@github.com/paypal/AATT.git#98699dd3c1ceded0c752a037af8d881e1d47bcc7"
+aatt@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/aatt/-/aatt-0.1.1.tgz#c28eb8874fbb58b6395a76d7a121788246dfe3e8"
+  integrity sha512-Rp18FVNXFtbUo8ijj/h/FEtEeKmRmDmid1q6MzX0zUUZRs3JWzrlPwZZ+4zdEEbQXNBos0Y0sGL2v74ZX9tUAg==
   dependencies:
     body-parser "~1.10.1"
     consolidate "~0.10.0"
