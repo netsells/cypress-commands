@@ -1,6 +1,6 @@
 {
   "name": "@netsells/cypress-commands",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Common CypressIO commands in Netsells projects",
   "main": "dist/index.js",
   "scripts": {
@@ -15,7 +15,7 @@
   "author": "Sam Boylett <sam.boylett@netsells.co.uk>",
   "license": "ISC",
   "dependencies": {
-    "aatt": "git+https://git@github.com/paypal/AATT.git#98699dd3c1ceded0c752a037af8d881e1d47bcc7"
+    "aatt": "^0.1.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.5",
